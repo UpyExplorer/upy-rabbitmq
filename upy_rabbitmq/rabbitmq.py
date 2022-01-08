@@ -4,8 +4,6 @@
 Module RabbitMQ
 """
 
-__all__ = ['UpyRabbitMQ']
-
 import pika
 
 

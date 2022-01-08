@@ -4,6 +4,7 @@
 ![PyPI - License](https://img.shields.io/pypi/l/upy-rabbitmq)
 ![PyPI](https://img.shields.io/pypi/v/upy-rabbitmq)
 ![GitHub last commit](https://img.shields.io/github/last-commit/UpyExplorer/upy-rabbitmq)
+![GitHub followers](https://img.shields.io/github/followers/UpyExplorer?label=UpyExplorer&style=social)
 <br>
 
 ## How to install?

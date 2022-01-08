@@ -5,17 +5,22 @@ Module RabbitMQ
 """
 
 import pika
-
+import environ
 
 class UpyRabbitMQ(object):
     """UpyRabbitMQ
     """
     process_type = 'rabbitmq'
 
-    def __init__(self, url):
+    def __init__(self, url=None):
         """Constructor
         """
-        self.rabbitmq_url = url
+        self.env = environ.Env()
+        
+        if url:
+            self.rabbitmq_url = url
+        else:
+            self.rabbitmq_url = self.env("RABBITMQ_URL")
 
     def channel_initialize(self):
         """Channel Initialize
@@ -25,31 +30,6 @@ class UpyRabbitMQ(object):
 
         return connection.channel()
 
-    def start_queue(self, key, callback):
-        """Start Queue
-        """
-        channel = self.channel_initialize()
-
-        channel.queue_declare(queue=key, durable=True)
-        channel.basic_qos(prefetch_count=1)
-        channel.basic_consume(queue=key, on_message_callback=callback)
-        channel.start_consuming()
-        
-    def new_task(self, key, message, exchange=None):
-        """New Task
-        """
-        exchange = exchange or ""
-        channel = self.channel_initialize()
-
-        channel.queue_declare(queue=key, durable=True)
-        channel.basic_publish(
-            exchange=exchange,
-            routing_key=key,
-            body=message,
-            properties=pika.BasicProperties(
-                delivery_mode=pika.spec.PERSISTENT_DELIVERY_MODE
-            ))
-        
     def search_queue(self, key, exchange=None):
         """Search Queue
         """

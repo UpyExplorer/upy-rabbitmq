@@ -22,6 +22,9 @@ setuptools.setup(
         'upy_rabbitmq',
     ],
     include_package_data=True,
+    install_requires=[
+        'pika>=1.2.0'
+    ],
     classifiers=[
         "Operating System :: OS Independent",
         "License :: OSI Approved :: MIT License",

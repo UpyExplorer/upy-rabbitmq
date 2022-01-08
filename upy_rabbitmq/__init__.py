@@ -1,5 +1,5 @@
 
-# from upy_rabbitmq.rabbitmq import UpyRabbitMQ
+# from upy_rabbitmq.base import UpyRabbitMQ
 
 # __all__ = ['UpyRabbitMQ']
 

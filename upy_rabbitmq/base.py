@@ -10,7 +10,6 @@ import environ
 class UpyRabbitMQ(object):
     """UpyRabbitMQ
     """
-    process_type = 'rabbitmq'
 
     def __init__(self, url=None):
         """Constructor

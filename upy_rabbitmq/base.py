@@ -4,8 +4,8 @@
 Module RabbitMQ
 """
 
+import os
 import pika
-import environ
 
 class UpyRabbitMQ(object):
     """UpyRabbitMQ
@@ -14,12 +14,10 @@ class UpyRabbitMQ(object):
     def __init__(self, url=None):
         """Constructor
         """
-        self.env = environ.Env()
-        
         if url:
             self.rabbitmq_url = url
         else:
-            self.rabbitmq_url = self.env("RABBITMQ_URL")
+            self.rabbitmq_url = os.environ.get("RABBITMQ_URL")
 
     def channel_initialize(self):
         """Channel Initialize

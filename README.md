@@ -13,7 +13,40 @@
 pip install upy-rabbitmq
 
 ```
+<!-- CONFIG -->
+## Config
 
+Add an environment variation called **RABBITMQ_URL** in your project's .env file.
+
+```
+
+RABBITMQ_URL=amqp://user:password@remote.server.com:port//vhost
+
+```
+## Start Queue
+
+```python
+
+from upy_rabbitmq.worker import UpyMQWorker
+
+worker = UpyMQWorker()
+worker.start_queue(
+    key="key",
+    callback=callback
+)
+```
+## New Task
+
+```python
+
+from upy_rabbitmq.worker import UpyMQClient
+
+client = UpyMQClient()
+client.new_task(
+    key="key",
+    message="Hello"
+)
+```
 <!-- CONTRIBUTING -->
 ## Contributing
 

@@ -23,8 +23,7 @@ setuptools.setup(
     ],
     include_package_data=True,
     install_requires=[
-        'pika>=1.2.0',
-        'environ>=1.0'
+        'pika>=1.2.0'
     ],
     classifiers=[
         "Operating System :: OS Independent",

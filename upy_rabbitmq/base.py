@@ -7,6 +7,7 @@ Module RabbitMQ
 import os
 import pika
 
+
 class UpyRabbitMQ(object):
     """UpyRabbitMQ
     """
@@ -27,11 +28,9 @@ class UpyRabbitMQ(object):
 
         return connection.channel()
 
-    def search_queue(self, key, exchange=None):
+    def search_queue(self, key: str, exchange: str = "amq.direct") -> dict:
         """Search Queue
         """
-        exchange = exchange or "amq.direct"
-
         try:
             channel = self.channel_initialize()
 

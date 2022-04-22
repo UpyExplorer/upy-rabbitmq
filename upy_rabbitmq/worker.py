@@ -6,6 +6,7 @@ Module Worker
 
 from upy_rabbitmq.base import UpyRabbitMQ
 
+
 class UpyMQWorker(UpyRabbitMQ):
     """Class responsible for orchestrating and initiating work processes
     """

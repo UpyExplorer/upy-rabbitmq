@@ -7,14 +7,14 @@ Module Client
 import pika
 from upy_rabbitmq.base import UpyRabbitMQ
 
+
 class UpyMQClient(UpyRabbitMQ):
     """Class responsible for producing new messages
     """
 
-    def new_task(self, key, message, exchange=None):
+    def new_task(self, key: str, message: str, exchange: str = ""):
         """New Task
         """
-        exchange = exchange or ""
         channel = self.channel_initialize()
 
         channel.queue_declare(queue=key, durable=True)

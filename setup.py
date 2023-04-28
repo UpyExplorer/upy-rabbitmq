@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import setuptools
+from setuptools import setup
 import upy_rabbitmq
 
 version = upy_rabbitmq.__version__
@@ -9,7 +9,8 @@ version = upy_rabbitmq.__version__
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-setuptools.setup(
+
+setup(
     name="upy-rabbitmq",
     version=version,
     author="Fernando Celmer",

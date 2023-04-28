@@ -1,10 +1,10 @@
 # upy-rabbitmq
 
+![GitHub Org's stars](https://img.shields.io/github/stars/UpyExplorer?label=LinuxProfile&style=flat-square)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/upy-rabbitmq)
 ![PyPI - License](https://img.shields.io/pypi/l/upy-rabbitmq)
 ![PyPI](https://img.shields.io/pypi/v/upy-rabbitmq)
 ![GitHub last commit](https://img.shields.io/github/last-commit/UpyExplorer/upy-rabbitmq)
-![GitHub followers](https://img.shields.io/github/followers/UpyExplorer?label=UpyExplorer&style=social)
 
 ---
 

@@ -5,8 +5,12 @@ Module RabbitMQ
 """
 
 import os
-from dotenv import load_dotenv
-from pika import URLParameters, BlockingConnection
+import logging
+
+from pika import (
+    URLParameters,
+    BlockingConnection
+)
 
 
 class UpyRabbitMQ(object):
@@ -16,7 +20,11 @@ class UpyRabbitMQ(object):
     def __init__(self, url=None):
         """Constructor
         """
-        load_dotenv()
+        try:
+            from dotenv import load_dotenv
+            load_dotenv()
+        except Exception as error:
+            logging.error(error)
 
         if url:
             self.rabbitmq_url = url

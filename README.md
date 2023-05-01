@@ -43,7 +43,7 @@ worker.start_queue(
 ## New Task
 
 ```python
-from upy_rabbitmq.worker import UpyMQClient
+from upy_rabbitmq.client import UpyMQClient
 
 client = UpyMQClient()
 client.new_task(

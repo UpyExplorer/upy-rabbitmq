@@ -13,7 +13,7 @@ class CallbackProcess(object):
     process_type = 'callback'
 
     def __init__(self, channel, method, properties, body):
-        """Base Constructor 
+        """Base Constructor
         """
         self.channel = channel
         self.method = method

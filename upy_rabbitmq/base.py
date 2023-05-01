@@ -5,7 +5,8 @@ Module RabbitMQ
 """
 
 import os
-import pika
+from dotenv import load_dotenv
+from pika import URLParameters, BlockingConnection
 
 
 class UpyRabbitMQ(object):
@@ -15,6 +16,8 @@ class UpyRabbitMQ(object):
     def __init__(self, url=None):
         """Constructor
         """
+        load_dotenv()
+
         if url:
             self.rabbitmq_url = url
         else:
@@ -23,8 +26,8 @@ class UpyRabbitMQ(object):
     def channel_initialize(self):
         """Channel Initialize
         """
-        params = pika.URLParameters(self.rabbitmq_url)
-        connection = pika.BlockingConnection(params)
+        params = URLParameters(self.rabbitmq_url)
+        connection = BlockingConnection(params)
 
         return connection.channel()
 

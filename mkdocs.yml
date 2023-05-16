@@ -1,0 +1,36 @@
+site_name: UpyExplorer
+site_url: http://upyexplorer.com/
+repo_name: UpyExplorer/upy-rabbitmq
+repo_url: https://github.com/UpyExplorer/upy-rabbitmq
+copyright: Fernando Celmer
+
+nav:
+    - Home: index.md
+    - Release Notes: nav/release-notes.md
+
+theme:
+    name: material
+    logo: assets/upy-explorer-icon.jpeg
+    favicon: assets/upy-explorer-icon.jpeg
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.highlight
+  - codehilite
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/FernandoCelmer
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/fernando-celmer/

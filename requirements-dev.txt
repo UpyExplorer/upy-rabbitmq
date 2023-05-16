@@ -1,0 +1,4 @@
+flake8==6.0.0
+mkdocs==1.4.2
+mkdocs-material==9.1.8
+build==0.10.0

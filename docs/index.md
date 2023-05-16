@@ -17,7 +17,6 @@
 
 ```python
 pip install upy-rabbitmq
-
 ```
 
 ## Config

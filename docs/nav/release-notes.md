@@ -3,6 +3,7 @@
 ### v1.0.6
 
 - [📦 PyPI - Build 1.0.6](https://github.com/UpyExplorer/upy-rabbitmq/releases/tag/v1.0.6)
+- [📌 ISSUE-14 - [Integration] Github Actions](https://github.com/UpyExplorer/upy-rabbitmq/issues/14)
 - [📌 ISSUE-12 - Basic Structure for Callback Class](https://github.com/UpyExplorer/upy-rabbitmq/issues/12)
 - [📌 ISSUE-10 - Creating documentation with MkDocs](https://github.com/UpyExplorer/upy-rabbitmq/issues/10)
 - [📌 ISSUE-8 - Replace package 'environ' with 'python-dotenv'](https://github.com/UpyExplorer/upy-rabbitmq/issues/8)

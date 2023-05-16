@@ -8,7 +8,7 @@ nav:
     - Home: index.md
     - Release Notes: nav/release-notes.md
 
-theme: 
+theme:
     name: material
     logo: assets/upy-explorer-icon.jpeg
     favicon: assets/upy-explorer-icon.jpeg

@@ -93,7 +93,6 @@ class UpyRabbitMQ:
         self.debug = debug
 
         self.uri = self._get_uri()
-        self.connection = self._get_connection()
 
     def _get_uri(self):
         if self.config:

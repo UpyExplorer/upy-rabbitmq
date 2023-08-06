@@ -24,8 +24,10 @@ setup(
     ],
     include_package_data=True,
     install_requires=[
-        'pika==1.3.1',
-        'python-dotenv==1.0.0'
+        'pika==1.3.2',
+        'python-dotenv==1.0.0',
+        'rich==13.5.2',
+        'pydantic==2.1.1'
     ],
     classifiers=[
         "Operating System :: OS Independent",

@@ -4,11 +4,18 @@ import pika
 from time import time
 from rich import print
 from dotenv import load_dotenv
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, computed_field
 
 
 def print_debug(name: str):
     print(f"[bold yellow]Warning[/bold yellow]: '{name}' executed in debug mode.")
+
+
+class ErrorLoadURI(Exception):
+
+    def __init__(self):
+        message = "Could not load connection URI."
+        super(ErrorLoadURI, self).__init__(message)
 
 
 class SchemaURI(BaseModel):
@@ -17,6 +24,11 @@ class SchemaURI(BaseModel):
     password: str = Field(default='password')
     host: str = Field(default='localhost')
     port: int = Field(default=5672)
+
+    @computed_field
+    @property
+    def uri(self) -> str:
+        return f"amqp://{self.username}:{self.password}@{self.host}:{self.port}"
 
 
 class Client:
@@ -95,12 +107,21 @@ class UpyRabbitMQ:
         self.uri = self._get_uri()
 
     def _get_uri(self):
+        rabbitmq_uri = None
+
         if self.config:
-            uri = SchemaURI(**self.config)
-            return f"amqp://{uri.username}:{uri.password}@{uri.host}:{uri.port}"
+            rabbitmq_uri = SchemaURI(**self.config).uri
         else:
             load_dotenv()
-            return os.getenv("RABBITMQ_URL") or os.getenv("RABBITMQ_URI")
+            uri_vars = ["RABBITMQ_URL", "RABBITMQ_URI"]
+            for var in uri_vars:
+                if os.getenv(var):
+                    rabbitmq_uri = os.getenv(var)
+
+        if rabbitmq_uri:
+            return rabbitmq_uri
+
+        raise ErrorLoadURI()
 
     def _get_connection(self):
         if self.debug:

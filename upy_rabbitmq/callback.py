@@ -6,13 +6,21 @@ Module Callback
 
 import logging
 
+from abc import ABC, abstractmethod
+from pika import BlockingConnection
+from pika.spec import Basic, BasicProperties
 
-class CallbackProcess(object):
+
+class CallbackProcess(ABC):
     """CallbackProcess
     """
-    process_type = 'callback'
 
-    def __init__(self, channel, method, properties, body):
+    def __init__(
+            self,
+            channel: BlockingConnection,
+            method: Basic.Deliver,
+            properties: BasicProperties,
+            body: bytes):
         """Base Constructor
         """
         self.channel = channel
@@ -22,15 +30,16 @@ class CallbackProcess(object):
 
         self.run()
 
+    @abstractmethod
     def process(self):
         """Process
         """
-        logging.info("Process")
+        logging.warning(self.body)
 
     def run(self):
         """Execution
         """
-        logging.info("Execution")
+        logging.warning("Execution")
 
         try:
             self.process()

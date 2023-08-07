@@ -44,11 +44,11 @@ class Client:
         }
 
         properties = pika.BasicProperties(
-                delivery_mode=pika.spec.PERSISTENT_DELIVERY_MODE,
-                priority=0,
-                timestamp=timestamp,
-                headers=headers
-		    )
+            delivery_mode=pika.spec.PERSISTENT_DELIVERY_MODE,
+            priority=0,
+            timestamp=timestamp,
+            headers=headers
+        )
 
         self.connection.queue_declare(queue=key, durable=True)
         self.connection.basic_publish(

@@ -1,4 +1,4 @@
-# Upy-RabbitMQ
+# upy-rabbitmq
 
 ![GitHub Org's stars](https://img.shields.io/github/stars/UpyExplorer?label=LinuxProfile&style=flat-square)
 ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/upy-rabbitmq)
@@ -8,7 +8,7 @@
 
 ---
 
-- **Documentation**: [https://github.com/UpyExplorer/upy-rabbitmq](https://github.com/UpyExplorer/upy-rabbitmq)
+- **Documentation**: [https://upyexplorer.github.io/upy-rabbitmq/](https://upyexplorer.github.io/upy-rabbitmq/)
 - **Source Code**: [https://github.com/UpyExplorer/upy-rabbitmq](https://github.com/UpyExplorer/upy-rabbitmq)
 
 ---
@@ -17,6 +17,7 @@
 
 ```python
 pip install upy-rabbitmq
+
 ```
 
 ## Config
@@ -27,7 +28,24 @@ Add an environment variation called **RABBITMQ_URL** in your project's .env file
 RABBITMQ_URL=amqp://user:password@remote.server.com:port//vhost
 ```
 
-## Start Queue
+## Implementation
+
+### Callback Class
+
+```python
+
+import time
+from upy_rabbitmq.callback import CallbackProcess
+
+class MyCallBack(CallbackProcess):
+
+    def process(self):
+        time.sleep(5)
+        print(self.body.decode())
+```
+
+### Start Queue
+
 ```python
 
 from upy_rabbitmq.worker import UpyMQWorker
@@ -35,11 +53,11 @@ from upy_rabbitmq.worker import UpyMQWorker
 worker = UpyMQWorker()
 worker.start_queue(
     key="key",
-    callback=callback
+    callback=MyCallBack
 )
 ```
 
-## New Task
+### New Task
 
 ```python
 from upy_rabbitmq.client import UpyMQClient

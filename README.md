@@ -8,7 +8,7 @@
 
 ---
 
-- **Documentation**: [https://github.com/UpyExplorer/upy-rabbitmq](https://github.com/UpyExplorer/upy-rabbitmq)
+- **Documentation**: [https://upyexplorer.github.io/upy-rabbitmq/](https://upyexplorer.github.io/upy-rabbitmq/)
 - **Source Code**: [https://github.com/UpyExplorer/upy-rabbitmq](https://github.com/UpyExplorer/upy-rabbitmq)
 
 ---

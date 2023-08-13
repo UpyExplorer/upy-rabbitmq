@@ -28,9 +28,14 @@ Add an environment variation called **RABBITMQ_URL** in your project's .env file
 RABBITMQ_URL=amqp://user:password@remote.server.com:port//vhost
 ```
 
+<<<<<<< HEAD
 ## Implementation
 
 ### Callback Class
+=======
+## Callback Class
+> callback.py
+>>>>>>> master
 
 ```python
 
@@ -44,7 +49,12 @@ class MyCallBack(CallbackProcess):
         print(self.body.decode())
 ```
 
+<<<<<<< HEAD
 ### Start Queue
+=======
+## Start Queue
+> worker.py
+>>>>>>> master
 
 ```python
 
@@ -57,7 +67,12 @@ worker.start_queue(
 )
 ```
 
+<<<<<<< HEAD
 ### New Task
+=======
+## New Task
+> client.py
+>>>>>>> master
 
 ```python
 from upy_rabbitmq.client import UpyMQClient
